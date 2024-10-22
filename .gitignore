@@ -10,3 +10,8 @@ Proyecto/pretrained_models/gurbansound8k_ecapa/embedding_model.ckpt
 Proyecto/pretrained_models/gurbansound8k_ecapa/hyperparams.yaml
 Proyecto/pretrained_models/gurbansound8k_ecapa/label_encoder.ckpt
 Tarea02/Ejercicio03/SpeechCommands
+.*/logs
+*.zip
+Tarea02/Ejercicio03/logs/events.out.tfevents.1729216119.qwery-pc.12359.0
+*.gz
+Tarea02/Ejercicio03/speech_commands_v0.02.tar.gz
