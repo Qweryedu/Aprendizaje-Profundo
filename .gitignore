@@ -1,3 +1,11 @@
 *.pdf
+*.zip
+Tarea02/
 Tarea02/Ejercicio02/fairface-img-margin025-trainval.zip
 Tarea02/Ejercicio02/fairface-img-margin025-trainval
+Tarea02/Ejercicio02/Ej2.zip
+Tarea02/Ejercicio03/SpeechCommands/
+Proyecto/pretrained_models/gurbansound8k_ecapa/classifier.ckpt
+Proyecto/pretrained_models/gurbansound8k_ecapa/embedding_model.ckpt
+Proyecto/pretrained_models/gurbansound8k_ecapa/hyperparams.yaml
+Proyecto/pretrained_models/gurbansound8k_ecapa/label_encoder.ckpt
