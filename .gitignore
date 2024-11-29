@@ -20,3 +20,4 @@ Proyecto/pretrained_models/gurbansound8k_ecapa/label_encoder.ckpt
 Tarea03/fairface-img-margin025-trainval/
 Tarea03/SpeechCommands/
 Proyecto/Data/AudioSet
+Proyecto/Data/unbalanced_train_segments.csv
