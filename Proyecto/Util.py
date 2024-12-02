@@ -12,15 +12,14 @@ from audioset_download import Downloader
 
 
 # Función para la descarga de datos
-def audioSet_download(lable_to_code, dataset='unbalanced_train'):
+def audioSet_download(lable_to_code, dataset='unbalanced_train', out_dir='./Data/'):
   # Checamos si el archivo ya existe
-  if os.path.isdir('./Data/'):
+  if os.path.isdir(out_dir):
     print('Se encontró el directorio de archivos')
-    return
-  # Checamos que haya una carpeta de Data
-  os.makedirs('./Data/', exist_ok=True)
+    return# Creamos una carpeta de Data
+  os.makedirs(out_dir, exist_ok=True)
   # Iniciamos el downloader
-  d = Downloader('./Data/AudioSet/', labels=[key for key in lable_to_code.keys()], n_jobs=4, download_type=dataset, copy_and_replicate=False)
+  d = Downloader(out_dir + 'AudioSet/', labels=[key for key in lable_to_code.keys()], n_jobs=4, download_type=dataset, copy_and_replicate=False)
   # tomamos el tiempo de la descarga
   t = time.time()
   # Iniciamos  la descarga
@@ -28,22 +27,22 @@ def audioSet_download(lable_to_code, dataset='unbalanced_train'):
   print('Descarga completada!!!')
   print(f'Tiempo transcurrido {time.time() - t}')
 
-def file_mover():
+def file_mover(check_dir='./Data/AudioSet/', new_dir='./Data/Audios'):
   archivos_disponibles = [] # Archivos que sí se pudieron descargar
   # Para obtener el ID 
   pattern = r"^[^_]+"
-  check_dir = './Data/AudioSet/'
   moved = False
 
   if os.path.isdir(check_dir):
     ''' Movemos todos los archivos a una carpeta general'''
-    target_dir   = './Data/Audios/'
+    target_dir   = new_dir
     os.makedirs(target_dir, exist_ok=True)
   else:
     '''Los archivos ya se movieron'''
-    check_dir = './Data/Audios/'
+    check_dir = new_dir
     moved = True
-
+    print('Ya se movieron los archivos')
+    
   # Recorremos los archivos 
   for root, _, files in os.walk(check_dir):
     for file in files:
@@ -63,7 +62,7 @@ def file_mover():
             print(f"No se movió {source_file_path}: {e}")
   if not moved:
     # Eliminamos el directorio de AudioSet
-    shutil.rmtree('./Data/AudioSet/')
+    shutil.rmtree(check_dir)
     print(f'Todos los audios han sido movidos')
   return archivos_disponibles
 
